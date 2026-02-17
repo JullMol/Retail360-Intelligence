@@ -50,92 +50,105 @@
 
 ### Step 2: Buat 4 KPI Cards
 
+> **Visual Icon:** Baris ke-4, kolom pertama (icon persegi dengan angka besar)
+
 **Card 1 — Total Revenue:**
-1. Klik **Card** visual dari panel Visualizations (kanan)
-2. Drag `net_revenue` dari `vw_executive_summary` → drop ke **Fields**
-3. Di panel **Format** → **General** → **Title**:
+1. Di panel **Visualizations** (kanan), klik icon **Card** (baris 4, kolom 1 - icon persegi dengan "123")
+2. Drag `net_revenue` dari `vw_executive_summary` (panel Fields) → drop ke **Fields** di visual
+3. Klik icon **Format visual** (roller brush 🎨) di panel Visualizations
+4. Expand **General** → **Title**:
+   - Title: **On**
    - Title text: `Total Revenue`
    - Font: Segoe UI Bold, 14pt
-4. Format → **Callout value**:
+5. Expand **Callout value**:
    - Display units: **Millions** (M)
    - Value decimal places: **2**
-5. Resize card → taruh **pojok kiri atas**
+6. Resize card (kecil) → taruh **pojok kiri atas**
 
 **Card 2 — Total Orders:**
-1. Tambah **Card** baru
-2. Drag `total_orders` dari `vw_executive_summary`
-3. Title: `Total Orders`
-4. Display units: **Thousands** (K)
+1. Tambah **Card** baru (klik icon Card lagi)
+2. Drag `total_orders` dari `vw_executive_summary` → drop ke Fields
+3. Format → Title: `Total Orders`
+4. Callout value → Display units: **Thousands** (K)
 5. Taruh di **sebelah kanan** Card 1
 
 **Card 3 — Unique Customers:**
 1. Tambah **Card** baru
 2. Drag `unique_customers` dari `vw_executive_summary`
-3. Title: `Unique Customers`
+3. Format → Title: `Unique Customers`
 4. Display units: **Thousands** (K)
 5. Taruh di **sebelah kanan** Card 2
 
 **Card 4 — Avg Review:**
 1. Tambah **Card** baru
-2. Drag `avg_satisfaction_score` dari `vw_executive_summary`
-3. **PENTING:** Klik dropdown `avg_satisfaction_score` di Fields → ganti dari **Sum** ke **Average**
-4. Title: `Avg Review`
-5. Display units: **None**
-6. Value decimal places: **2**
-7. Taruh di **sebelah kanan** Card 3
+2. Drag `avg_satisfaction_score` dari `vw_executive_summary` → drop ke Fields
+3. **PENTING:** Di panel Fields (di visual), klik dropdown pada `avg_satisfaction_score` → pilih **Average** (bukan Sum)
+4. Format → Title: `Avg Review`
+5. Callout value → Display units: **None**, Value decimal places: **2**
+6. Taruh di **sebelah kanan** Card 3
 
 ### Step 3: Line Chart — Revenue Trend
 
-1. Klik **Line chart** dari Visualizations
+> **Visual Icon:** Baris ke-2, kolom pertama (icon garis naik-turun)
+
+1. Klik icon **Line chart** (baris 2, kolom 1) dari panel Visualizations
 2. **X-axis:** 
-   - Drag `year` dari `vw_monthly_trends` → drop ke X-axis
-   - Drag `month_name` dari `vw_monthly_trends` → drop ke X-axis (di bawah year)
+   - Dari panel Fields, drag `year` dari table `vw_monthly_trends` → drop ke area **X-axis** di visual
+   - Drag `month_name` dari `vw_monthly_trends` → drop ke **X-axis** (akan muncul di bawah year)
 3. **Y-axis:**
-   - Drag `revenue` dari `vw_monthly_trends`
-4. **Format:**
-   - Title: `Monthly Revenue Trend`
-   - X-axis: hilangkan title (toggle off)
-   - Y-axis: change title jadi "Revenue (R$)"
-5. Resize → taruh **di tengah/bawah cards** (ukuran horizontal lebar)
+   - Drag `revenue` dari `vw_monthly_trends` → drop ke **Y-axis**
+4. **Format visual** (klik icon roller brush):
+   - General → Title → Title text: `Monthly Revenue Trend`
+   - X-axis → Title: **Off** (toggle)
+   - Y-axis → Title: **On** → Title text: `Revenue (R$)`
+5. Resize visual (lebar horizontal) → taruh **di tengah/bawah cards**
 
 ### Step 4: Bar Chart — Top 10 States
 
-1. Klik **Clustered bar chart** (horizontal bars)
-2. **Y-axis:** `state` dari `vw_geo_performance`
-3. **X-axis:** `total_revenue` dari `vw_geo_performance`
-4. **Filter visual:**
-   - Klik visual → panel Filters → drag `total_revenue` ke **Filters on this visual**
-   - Filter type: **Top N**
-   - Show items: **Top 10**
-   - By value: `total_revenue`
+> **Visual Icon:** Baris ke-1, kolom ke-2 (icon bar horizontal)
+
+1. Klik icon **Clustered bar chart** (baris 1, kolom 2 - bars horizontal)
+2. **Y-axis:** Drag `state` dari `vw_geo_performance` → drop ke **Y-axis**
+3. **X-axis:** Drag `total_revenue` dari `vw_geo_performance` → drop ke **X-axis**
+4. **Filter visual (Top 10):**
+   - Dengan visual masih ter-select, lihat panel **Filters** (kanan, di bawah Visualizations)
+   - Drag `total_revenue` dari Fields → drop ke area **Filters on this visual**
+   - Di filter card yang muncul, ganti Filter type ke **Top N**
+   - Show items: ketik **10**
+   - By value: pilih `total_revenue`
+   - Klik **Apply filter**
 5. **Format:**
    - Title: `Top 10 States by Revenue`
-   - Data labels: **On**
-   - Sort by: `total_revenue` descending
+   - Values → Data labels: **On**
+   - Klik `...` (More options) di visual → Sort descending by `total_revenue`
 6. Resize → taruh di **kanan** (sebelah line chart)
 
 ### Step 5: Area Chart — Orders per Month
 
-1. Klik **Area chart**
-2. **X-axis:** `month_name` dari `vw_executive_summary`
-3. **Y-axis:** `total_orders` dari `vw_executive_summary`
-4. **PENTING — Fix sorting:**
-   - Klik `...` (More options) di pojok visual
-   - **Sort axis** → pilih `month` (bukan month_name)
-   - **Sort ascending**
+> **Visual Icon:** Baris ke-2, kolom ke-2 (icon area chart dengan shading)
+
+1. Klik icon **Area chart** (baris 2, kolom 2)
+2. **X-axis:** Drag `month_name` dari `vw_executive_summary` → drop ke X-axis
+3. **Y-axis:** Drag `total_orders` dari `vw_executive_summary` → drop ke Y-axis
+4. **PENTING — Fix month sorting:**
+   - Klik `...` (More options / 3 titik) di pojok kanan atas visual
+   - Pilih **Sort axis** → pilih **month** (BUKAN month_name)
+   - Pilih **Sort ascending**
 5. **Format:**
    - Title: `Orders by Month`
-   - Colors → Line: gradient fill
+   - Line colors → bisa diganti ke gradient fill
 6. Resize → taruh **di bawah line chart**
 
 ### Step 6: Slicer — Year Filter
 
-1. Klik **Slicer** visual
-2. Drag `year` dari `vw_executive_summary` (BUKAN dari dim_date)
-3. **Format:**
+> **Visual Icon:** Baris ke-4, kolom ke-4 (icon dengan slider/filter)
+
+1. Klik icon **Slicer** (baris 4, kolom 4)
+2. Drag `year` dari table `vw_executive_summary` (BUKAN dari dim_date) → drop ke **Field**
+3. **Format slicer:**
    - Slicer settings → Style: **Dropdown**
-   - Title: `Year`
-4. Taruh di **pojok kanan atas**
+   - Title: **On** → Title text: `Year`
+4. Resize (kecil) → taruh di **pojok kanan atas**
 
 ### Step 7: Formatting — Dark Theme
 
