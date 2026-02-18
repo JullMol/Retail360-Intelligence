@@ -13,15 +13,15 @@ An enterprise-grade capstone project demonstrating the full data lifecycle — f
 │                        RETAIL360 ARCHITECTURE                       │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│  ┌─────────┐    ┌──────────────┐    ┌──────────────┐    ┌────────┐ │
-│  │ Raw CSV │───>│  Staging     │───>│  Star Schema │───>│Power BI│ │
-│  │ (9 files)│    │  (stg_*)     │    │  DWH         │    │Dashboard│ │
-│  └─────────┘    └──────────────┘    └──────────────┘    └────────┘ │
+│  ┌─────────┐    ┌──────────────┐    ┌──────────────┐    ┌─────────┐ │
+│  │ Raw CSV │───>│  Staging     │───>│  Star Schema │───>│Power BI │ │
+│  │(9 files)│    │  (stg_*)     │    │  DWH         │    │Dashboard│ │
+│  └─────────┘    └──────────────┘    └──────────────┘    └─────────┘ │
 │                                                                     │
-│  DATA SOURCE     EXTRACT            TRANSFORM & LOAD   VISUALIZE   │
-│  Brazilian       Python ETL         7 Dimensions        DAX        │
-│  E-Commerce      Pandas + SQL       2 Fact Tables       Power Query│
-│  (Olist)         Data Validation    Surrogate Keys      14 Views   │
+│  DATA SOURCE     EXTRACT            TRANSFORM & LOAD   VISUALIZE    │
+│  Brazilian       Python ETL         7 Dimensions        DAX         │
+│  E-Commerce      Pandas + SQL       2 Fact Tables       Power Query │
+│  (Olist)         Data Validation    Surrogate Keys      14 Views    │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -35,6 +35,24 @@ An enterprise-grade capstone project demonstrating the full data lifecycle — f
 | Data Modeling | Kimball Star Schema | 7 dimension + 2 fact tables |
 | Analytics | SQL (Window Functions, CTEs) | 10 business intelligence views |
 | Visualization | Power BI (DAX, Power Query) | Interactive executive dashboard |
+
+## Dashboard Preview
+
+> **Note:** Power BI `.pbix` file is at `dashboard/dashboard360.pbix`. Open with Power BI Desktop and connect to your local PostgreSQL instance. Screenshots below are static previews.
+
+| Page | Preview |
+|---|---|
+| Executive Summary | ![Page 1](docs/screenshots/page1_executive.png) |
+| Customer Intelligence | ![Page 2](docs/screenshots/page2_customers.png) |
+| Logistics & Geo | ![Page 3](docs/screenshots/page3_logistics.png) |
+| Revenue Deep-Dive | ![Page 4](docs/screenshots/page4_revenue.png) |
+
+**Dashboard Features:**
+- 4 interactive pages with left sidebar navigation
+- Year & segment slicers synced across all pages
+- DAX measures: KPIs, MoM growth, YTD accumulation, RFM counts
+- Conditional formatting for delivery performance (green/yellow/red)
+- Visuals: RFM scatter plot, treemap, donut, bubble map, waterfall
 
 ## Data Warehouse Design
 
@@ -98,7 +116,9 @@ Retail360-Intelligence/
 ├── docs/
 │   ├── data_dictionary.md            # Column-level documentation
 │   ├── bus_matrix.md                 # Kimball Bus Matrix
-│   └── metrics_glossary.md           # Business metrics & formulas
+│   ├── metrics_glossary.md           # Business metrics & formulas
+│   ├── power_bi_guide.md             # Dashboard build guide (light theme)
+│   └── screenshots/                  # Static PNG exports of dashboard pages
 └── README.md
 ```
 
@@ -163,6 +183,10 @@ Open `dashboard/dashboard360.pbix` and point the data source to your PostgreSQL 
 - **Logistics Impact:** Correlates late deliveries with lower review scores by geographic region
 - **Seller Quality:** Composite scoring enables data-driven vendor management decisions
 - **Payment Behavior:** Installment patterns reveal credit dependency and affordability signals
+
+## Dashboard Screenshots
+
+A static showcase of the Power BI dashboard is available in `docs/dashboard_screenshots.md`.
 
 ## License
 

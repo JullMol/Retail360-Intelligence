@@ -17,10 +17,6 @@ env/
 # Data (CSV files terlalu besar untuk GitHub)
 data/raw/*.csv
 
-# Power BI temp
-*.pbix.tmp
-*.pbit
-
 # IDE
 .vscode/
 .idea/
@@ -36,3 +32,7 @@ desktop.ini
 # Env
 .env
 *.env
+
+# Logs
+logs/
+*.log
